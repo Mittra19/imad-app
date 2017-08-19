@@ -33,6 +33,7 @@ var articles={
         This is my first html page of this app.This is my first html page of this app.
       </p> `}
 };
+
 function createTemplate(data){
     var title=data.title;
     var date=data.date;
@@ -67,7 +68,11 @@ var htmlTemplate=`
 return htmlTemplate;
 }
 
-
+var counter=0;
+app.get('/counter',function(req,res){
+   counter= counter+1;
+   res.send(counter.toString());
+});
 
 
 app.get('/', function (req, res) {
